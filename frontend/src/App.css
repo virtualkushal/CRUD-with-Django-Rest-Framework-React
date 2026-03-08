@@ -1,192 +1,136 @@
 .container {
   max-width: 600px;
-  margin: 40px auto;
-  padding: 30px;
-  background: rgba(255, 255, 255, 0.95);
-  border-radius: 20px;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  margin: 2rem auto;
+  padding: 2rem;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
-h1 {
+.container h1 {
   text-align: center;
   color: #333;
-  margin-bottom: 30px;
-  font-size: 2.5rem;
-  font-weight: 700;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  margin-bottom: 1.5rem;
 }
 
 form {
   display: flex;
-  gap: 15px;
-  margin-bottom: 30px;
-  flex-wrap: wrap;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 2rem;
 }
 
-input[type="text"],
-input[type="number"] {
-  flex: 1;
-  min-width: 150px;
-  padding: 15px 20px;
+form input {
+  padding: 12px;
   border: 2px solid #e0e0e0;
-  border-radius: 12px;
+  border-radius: 8px;
   font-size: 16px;
-  transition: all 0.3s ease;
+  transition: border-color 0.3s;
+}
+
+form input:focus {
   outline: none;
-}
-
-input[type="text"]:focus,
-input[type="number"]:focus {
   border-color: #667eea;
-  box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
 }
 
-button {
-  padding: 15px 30px;
-  border: none;
-  border-radius: 12px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+form button {
+  padding: 12px;
+  background: #667eea;
   color: white;
+  border: none;
+  border-radius: 8px;
   font-size: 16px;
-  font-weight: 600;
   cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+  transition: background 0.3s;
 }
 
-button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.5);
+form button:hover {
+  background: #5568d3;
 }
 
-button:active {
-  transform: translateY(0);
+form button.cancel {
+  background: #e0e0e0;
+  color: #333;
 }
 
-button.cancel {
-  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-  box-shadow: 0 4px 15px rgba(245, 87, 108, 0.4);
+form button.cancel:hover {
+  background: #ccc;
 }
 
-button.cancel:hover {
-  box-shadow: 0 8px 25px rgba(245, 87, 108, 0.5);
+.loading {
+  text-align: center;
+  padding: 2rem;
+  color: #666;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 2rem;
+  color: #666;
 }
 
 ul {
-  list-style-type: none;
+  list-style: none;
   padding: 0;
 }
 
 li {
-  padding: 20px;
-  background: white;
-  margin-bottom: 15px;
+  background: #f9f9f9;
+  margin-bottom: 10px;
+  padding: 15px;
+  border-radius: 8px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-radius: 15px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
-  animation: slideIn 0.3s ease;
 }
 
-li:hover {
-  transform: translateX(5px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-}
-
-li .item-info {
+.item-info {
   display: flex;
   flex-direction: column;
   gap: 5px;
 }
 
-li .item-name {
+.item-name {
+  font-weight: bold;
   font-size: 18px;
-  font-weight: 600;
   color: #333;
 }
 
-li .item-quantity {
+.item-quantity {
+  color: #666;
   font-size: 14px;
-  color: #667eea;
-  font-weight: 500;
 }
 
-li .item-date {
+.item-date {
+  color: #999;
   font-size: 12px;
-  color: #999;
 }
 
-li .actions {
+.actions {
   display: flex;
-  gap: 10px;
+  gap: 8px;
 }
 
-li .actions button {
-  padding: 10px 20px;
+.actions button {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
   font-size: 14px;
+  transition: opacity 0.3s;
 }
 
-.empty-state {
-  text-align: center;
-  padding: 50px 20px;
-  color: #999;
+.actions button:first-child {
+  background: #667eea;
+  color: white;
 }
 
-.empty-state p {
-  font-size: 18px;
+.actions button.cancel {
+  background: #ff6b6b;
+  color: white;
 }
 
-@keyframes slideIn {
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-.loading {
-  text-align: center;
-  padding: 40px;
-  color: #667eea;
-  font-size: 18px;
-}
-
-@media (max-width: 600px) {
-  .container {
-    margin: 20px;
-    padding: 20px;
-  }
-
-  form {
-    flex-direction: column;
-  }
-
-  li {
-    flex-direction: column;
-    gap: 15px;
-    text-align: center;
-  }
-
-  .actions {
-    width: 100%;
-    justify-content: center;
-  }
+.actions button:hover {
+  opacity: 0.8;
 }
 
